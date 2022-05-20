@@ -11,4 +11,4 @@ Second task - From the web shop metagames.hu under the category "Magic The Gathe
 
 ### Usage:
 
-Both examples can be run from the commandline e.g. python example_1
+Both examples can be run from the commandline e.g. python example_1.py
