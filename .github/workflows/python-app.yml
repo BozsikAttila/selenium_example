@@ -32,4 +32,4 @@ jobs:
         env:
           SELECTED_COLOR: ${{ steps.step1.outputs.SELECTED_COLOR }}
         run: |
-        if ${{ env.CONTROL }} ; then echo "TEST_OUTCOME=${{ steps.step1.outcome }}" >> $GITHUB_ENV; fi
+          if ${{ env.CONTROL }} ; then echo "TEST_OUTCOME=${{ steps.step1.outcome }}" >> $GITHUB_ENV; fi
