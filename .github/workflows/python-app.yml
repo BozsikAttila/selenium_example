@@ -2,6 +2,16 @@ name: Python application
 
 on:
   workflow_dispatch:
+      inputs:
+      test_set:
+        type: choice
+        description: 'TEST_SET'
+        required: true
+        options:
+          - regression
+          - smoke
+          - marketing
+        default: 'regression'
 
 env:
   TEST_OUTCOME: ""
