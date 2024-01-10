@@ -4,8 +4,6 @@
 name: Python package
 
 on:
-  schedule:
-    - cron: '*/2 * * * *'
   workflow_dispatch:
     inputs:
       run_env:
