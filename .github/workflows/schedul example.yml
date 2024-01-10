@@ -18,9 +18,18 @@ on:
         default: 'ubuntu-latest'
 
 jobs:
-  build:
+  scheduled-job:
+    runs-on: ubuntu-latest
 
-    runs-on: ${{ github.event_name == 'schedule' ? 'ubuntu-latest' :'${{ github.event.inputs.run_env }}'}}
+    if: github.event_name == 'schedule'
+    steps:
+    - name: Example
+      run: |
+        pwd
+  manual-job:
+    runs-on: '${{ github.event.inputs.run_env }}'
+
+    if: github.event_name == 'workflow_dispatch'
     steps:
     - name: Example
       run: |
