@@ -31,7 +31,6 @@ on:
 jobs:
   scheduled-job:
     runs-on: ubuntu-latest
-
     if: ${{ github.event_name == 'schedule' }}
     steps:
     - name: Example
@@ -39,7 +38,6 @@ jobs:
         pwd
   manual-job:
     runs-on: '${{ github.event.inputs.run_env }}'
-
     if: ${{ github.event_name == 'workflow_dispatch' }}
     steps:
     - name: Example
