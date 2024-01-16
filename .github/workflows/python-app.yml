@@ -2,7 +2,7 @@ name: Python application
 
 on:
   schedule:
-    - cron: '*/2 * * * *'
+    - cron: '*/5 * * * *'
     - cron: '*/3 * * * *'
   workflow_dispatch:
       inputs:
@@ -18,7 +18,7 @@ on:
 env:
   TEST_OUTCOME: ""
   CONTROL: "false"
-  DEV_SCHEDULE_PATTERN: '*/2 * * * *'
+  DEV_SCHEDULE_PATTERN: '*/5 * * * *'
   PROD_SCHEDULE_PATTERN: '*/3 * * * *'
   
 jobs:
@@ -31,9 +31,12 @@ jobs:
           if ${{ github.event.schedule == env.DEV_SCHEDULE_PATTERN }}; then echo "TEST_ENV=dev" >> "$GITHUB_ENV"; else echo "TEST_ENV=prod" >> "$GITHUB_ENV"; fi
           echo $env.TEST_ENV
           echo ${{ env.TEST_ENV }}
+          echo $github.env.TEST_ENV
       - name: step2
         run: |
           echo ${{ github.env.TEST_ENV }}
+          echo $env.TEST_ENV
+          echo $github.env.TEST_ENV
 
 
 
