@@ -28,6 +28,8 @@ jobs:
         id: step1
         run: |
           echo "TEST_OUTCOME=green" >> "$GITHUB_OUTPUT"
+          echo $TEST_OUTCOME
+          echo ${{ env.TEST_OUTCOME }}
       - name: step2
         env:
           SELECTED_COLOR: ${{ steps.step1.outputs.SELECTED_COLOR }}
