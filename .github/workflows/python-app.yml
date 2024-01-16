@@ -2,14 +2,14 @@ name: Python application
 
 on:
   schedule:
-    - cron: '*/2 * * * *'
-    - cron: '*/3 * * * *'
+    - cron: '*/15 * * * *'
+    - cron: '*/21 * * * *'
 
 env:
   TEST_OUTCOME: ""
   CONTROL: "false"
-  DEV_SCHEDULE_PATTERN: '*/2 * * * *'
-  PROD_SCHEDULE_PATTERN: '*/3 * * * *'
+  DEV_SCHEDULE_PATTERN: '*/15 * * * *'
+  PROD_SCHEDULE_PATTERN: '*/21 * * * *'
   
 jobs:
   job1:
@@ -22,6 +22,7 @@ jobs:
           echo $env.TEST_ENV
           echo ${{ env.TEST_ENV }}
           echo $github.env.TEST_ENV
+          echo ${{ github.event.schedule }}
       - name: step2
         run: |
           echo ${{ env.TEST_ENV }}
