@@ -1,6 +1,9 @@
 name: Python application
 
 on:
+  schedule:
+    - cron: '*/5 * * * *'
+    - cron: '*/3 * * * *'
   workflow_dispatch:
       inputs:
         test_set:
@@ -15,23 +18,20 @@ on:
 env:
   TEST_OUTCOME: ""
   CONTROL: "false"
+  DEV_SCHEDULE_PATTERN: '*/2 * * * *'
+  PROD_SCHEDULE_PATTERN: '*/3 * * * *'
   
 jobs:
   job1:
     runs-on: ubuntu-latest
     steps:
-      - name: step1
+      - name: set env variable
         id: step1
         run: |
-          echo "TEST_OUTCOME=green" >> "$GITHUB_OUTPUT"
-          echo "TEST_OUTCOME=green" >> "$GITHUB_ENV"
-          echo $TEST_OUTCOME
-          echo ${{ env.TEST_OUTCOME }}
+          if ${{ github.event.schedule == env.DEV_SCHEDULE_PATTERN }}; then echo "TEST_ENV=dev" >> "$GITHUB_ENV"; else echo "TEST_ENV=prod" >> "$GITHUB_ENV"; fi
       - name: step2
-        env:
-          SELECTED_COLOR: ${{ steps.step1.outputs.SELECTED_COLOR }}
         run: |
-          if ${{ env.CONTROL }} ; then echo "TEST_OUTCOME=${{ steps.step1.outcome }}" >> $GITHUB_ENV; fi
+          echo ${{ github.env.TEST_ENV }}
 
 
 
