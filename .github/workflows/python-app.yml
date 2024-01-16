@@ -24,7 +24,7 @@ jobs:
           echo $github.env.TEST_ENV
       - name: step2
         run: |
-          echo ${{ github.env.TEST_ENV }}
+          echo ${{ env.TEST_ENV }}
           echo $env.TEST_ENV
           echo $github.env.TEST_ENV
 
