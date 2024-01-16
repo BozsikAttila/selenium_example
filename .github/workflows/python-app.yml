@@ -2,23 +2,13 @@ name: Python application
 
 on:
   schedule:
-    - cron: '*/5 * * * *'
+    - cron: '*/2 * * * *'
     - cron: '*/3 * * * *'
-  workflow_dispatch:
-      inputs:
-        test_set:
-          type: choice
-          description: 'TEST_SET'
-          required: true
-          options:
-            - regression
-            - smoke
-          default: 'regression'
 
 env:
   TEST_OUTCOME: ""
   CONTROL: "false"
-  DEV_SCHEDULE_PATTERN: '*/5 * * * *'
+  DEV_SCHEDULE_PATTERN: '*/2 * * * *'
   PROD_SCHEDULE_PATTERN: '*/3 * * * *'
   
 jobs:
