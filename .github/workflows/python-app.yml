@@ -12,14 +12,13 @@ env:
 jobs:
   job1:
     runs-on: ubuntu-latest
-    timeout-minutes: 1
     steps:
       - name: step 1
-        timeout-minutes: 2
         continue-on-error: true
         run: |
           sleep 90
       - name: step 2
+        timeout-minutes: 2
         continue-on-error: true
         run: |
           sleep 125
