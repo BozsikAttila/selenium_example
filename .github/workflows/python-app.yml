@@ -1,9 +1,6 @@
 name: Python application
 
 on:
-  schedule:
-    - cron: '*/15 * * * *'
-    - cron: '*/21 * * * *'
 
 env:
   TEST_OUTCOME: ""
