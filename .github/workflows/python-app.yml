@@ -13,18 +13,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: set env variable
-        id: step1
+        id: step 1
         run: |
-          if ${{ github.event.schedule == env.DEV_SCHEDULE_PATTERN }}; then echo "TEST_ENV=dev" >> "$GITHUB_ENV"; else echo "TEST_ENV=prod" >> "$GITHUB_ENV"; fi
-          echo $env.TEST_ENV
-          echo ${{ env.TEST_ENV }}
-          echo $github.env.TEST_ENV
-          echo ${{ github.event.schedule }}
-      - name: step2
+          sleep 30
+      - name: step 2
         run: |
-          echo ${{ env.TEST_ENV }}
-          echo $env.TEST_ENV
-          echo $github.env.TEST_ENV
+          sleep 80
+      - name: step 3
+        run: |
+          sleep 30
 
 
 
