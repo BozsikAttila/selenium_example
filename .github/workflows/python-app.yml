@@ -13,15 +13,18 @@ jobs:
   job1:
     runs-on: ubuntu-latest
     timeout-minutes: 1
-    continue-on-error: true
     steps:
       - name: step 1
+        timeout-minutes: 2
+        continue-on-error: true
         run: |
           sleep 90
       - name: step 2
+        continue-on-error: true
         run: |
           sleep 125
       - name: step 3
+        continue-on-error: true
         run: |
           sleep 30
 
