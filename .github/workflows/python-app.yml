@@ -12,15 +12,15 @@ env:
 jobs:
   job1:
     runs-on: ubuntu-latest
+    timeout-minutes: 1
     steps:
-      - name: set env variable
-        id: step_1
+      - name: step 1
         run: |
-          sleep 30
-      - name: step_2
+          sleep 90
+      - name: step 2
         run: |
-          sleep 80
-      - name: step_3
+          sleep 125
+      - name: step 3
         run: |
           sleep 30
 
