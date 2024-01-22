@@ -13,6 +13,7 @@ jobs:
   job1:
     runs-on: ubuntu-latest
     timeout-minutes: 1
+    continue-on-error: true
     steps:
       - name: step 1
         continue-on-error: true
