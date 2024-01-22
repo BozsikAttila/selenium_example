@@ -14,13 +14,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: set env variable
-        id: step 1
+        id: step_1
         run: |
           sleep 30
-      - name: step 2
+      - name: step_2
         run: |
           sleep 80
-      - name: step 3
+      - name: step_3
         run: |
           sleep 30
 
