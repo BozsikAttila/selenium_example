@@ -18,7 +18,7 @@ jobs:
       - name: step 1
         continue-on-error: true
         run: |
-          sleep 90
+          date
       - name: step 2
         timeout-minutes: 2
         continue-on-error: true
